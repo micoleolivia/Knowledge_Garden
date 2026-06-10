@@ -19,6 +19,27 @@
     </div>
   </div>
 
+  <!-- SHELF VIEW -->
+  <div id="shelf-view" class="hidden">
+    <div class="shelf-header">
+      <button class="back-btn shelf-back" onclick="goToLanding()">← The Garden</button>
+      <span class="shelf-title">The Book Garden</span>
+      <span></span>
+    </div>
+    <div class="shelf-scene">
+      <p class="shelf-invite">Choose a book to begin reading.</p>
+      <div class="bookcase">
+        <div class="shelf-plank">
+          <div class="book-spine" id="book-mix" onclick="pullBook('mix')" title="A Mix of Everything">
+            <span class="spine-title">A Mix of Everything</span>
+            <span class="spine-vol">Vol. I</span>
+          </div>
+        </div>
+        <div class="shelf-base"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- BOOK VIEW -->
   <div id="book-view" class="hidden">
 
@@ -49,36 +70,34 @@
         <div class="divider"></div>
 
         <section class="entry-section">
-          <h3 class="section-label">The Definition</h3>
+          <h3 class="section-label">📖 The Definition</h3>
           <p class="section-text" id="entry-formal"></p>
         </section>
 
         <section class="entry-section">
-          <h3 class="section-label">In Plain English</h3>
+          <h3 class="section-label">💬 In Plain English</h3>
           <p class="section-text" id="entry-plain"></p>
         </section>
 
         <section class="entry-section">
-          <h3 class="section-label">Why It Matters</h3>
+          <h3 class="section-label">🌍 Why It Matters</h3>
           <p class="section-text" id="entry-why"></p>
         </section>
 
         <section class="entry-section" id="entry-examples-section">
-  <h3 class="section-label">In Real Life</h3>
-  <div id="entry-examples"></div>
-</section>
-        
+          <h3 class="section-label">📚 In Real Life</h3>
+          <div id="entry-examples"></div>
+        </section>
+
         <section class="entry-section cocktail-section">
-          <h3 class="section-label">The Cocktail Party Question</h3>
+          <h3 class="section-label">🥂 The Cocktail Party Question</h3>
           <p class="section-text cocktail-text" id="entry-cocktail"></p>
         </section>
 
         <section class="entry-section">
-          <h3 class="section-label">Fun Fact</h3>
+          <h3 class="section-label">✨ Fun Fact</h3>
           <p class="section-text" id="entry-fun"></p>
         </section>
-
-        
 
       </div>
     </div>
