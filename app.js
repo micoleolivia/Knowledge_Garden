@@ -1,19 +1,20 @@
 // ===================== KNOWLEDGE GARDEN — app.js =====================
 
-// The garden starts on this date — change this to your actual launch date!
 const GARDEN_START = new Date('2026-06-10');
 
 let currentPage = 1;
 let unlockedCount = 0;
+let activeBook = 'mix';
+let activeEntries = [];
 
 // ===================== DATE LOGIC =====================
-function getDaysUnlocked() {
+function getDaysUnlocked(bookEntries) {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const start = new Date(GARDEN_START);
   start.setHours(0, 0, 0, 0);
   const diff = Math.floor((today - start) / (1000 * 60 * 60 * 24));
-  return Math.min(Math.max(diff + 1, 1), entries.length);
+  return Math.min(Math.max(diff + 1, 1), bookEntries.length);
 }
 
 // ===================== SHELF =====================
@@ -23,7 +24,8 @@ function goToShelf() {
 }
 
 function pullBook(bookId) {
-  const spine = document.getElementById('book-mix');
+  activeBook = bookId;
+  const spine = document.getElementById('book-' + bookId);
   spine.classList.add('pulling');
   setTimeout(() => {
     document.getElementById('shelf-view').classList.add('hidden');
@@ -32,13 +34,16 @@ function pullBook(bookId) {
   }, 600);
 }
 
-
+// ===================== LANDING =====================
 function enterGarden() {
-  document.getElementById('landing').classList.add('hidden');
+  activeEntries = activeBook === 'finance' ? financeEntries : entries;
+  const bookName = activeBook === 'finance' ? 'Financial Terms' : 'A Mix of Everything';
+  document.querySelector('.book-name').textContent = bookName;
+
   document.getElementById('book-view').classList.remove('hidden');
 
-  unlockedCount = getDaysUnlocked();
-  currentPage = unlockedCount; // open to today's page by default
+  unlockedCount = getDaysUnlocked(activeEntries);
+  currentPage = unlockedCount;
   renderPage(currentPage);
   renderArchive();
   updateProgress();
@@ -52,11 +57,11 @@ function goToLanding() {
 
 // ===================== RENDER PAGE =====================
 function renderPage(dayNumber) {
-  const entry = entries.find(e => e.day === dayNumber);
+  const entry = activeEntries.find(e => e.day === dayNumber);
   const page = document.getElementById('book-page');
 
   page.classList.remove('page-animate');
-  void page.offsetWidth; // force reflow
+  void page.offsetWidth;
   page.classList.add('page-animate');
 
   if (!entry || dayNumber > unlockedCount) {
@@ -71,12 +76,13 @@ function renderPage(dayNumber) {
   }
 
   document.getElementById('entry-category').textContent = entry.category;
-  document.getElementById('entry-day').textContent = `Day ${entry.day} of 60`;
+  document.getElementById('entry-day').textContent = `Day ${entry.day} of ${activeEntries.length}`;
   document.getElementById('entry-title').textContent = entry.title;
   document.getElementById('entry-formal').textContent = entry.formal;
   document.getElementById('entry-plain').textContent = entry.plain;
   document.getElementById('entry-why').textContent = entry.why;
   document.getElementById('entry-cocktail').textContent = entry.cocktail;
+  document.getElementById('entry-fun').textContent = entry.fun_fact;
 
   const examplesEl = document.getElementById('entry-examples');
   const examplesSection = document.getElementById('entry-examples-section');
@@ -86,8 +92,6 @@ function renderPage(dayNumber) {
   } else {
     examplesSection.style.display = 'none';
   }
-  document.getElementById('entry-fun').textContent = entry.fun_fact;
-  document.getElementById('entry-closing').textContent = entry.formal;
 
   updateNavButtons();
   updateArchiveActive();
@@ -122,9 +126,8 @@ function renderArchive() {
     return;
   }
 
-  // Show all unlocked entries except current, most recent first
   for (let i = unlockedCount; i >= 1; i--) {
-    const entry = entries.find(e => e.day === i);
+    const entry = activeEntries.find(e => e.day === i);
     if (!entry) continue;
     const chip = document.createElement('button');
     chip.className = 'archive-chip' + (i === currentPage ? ' active' : '');
@@ -144,7 +147,6 @@ function updateArchiveActive() {
     chip.classList.remove('active');
   });
   const chips = document.querySelectorAll('.archive-chip');
-  // chips are rendered newest-first, so day = unlockedCount - index
   chips.forEach((chip, i) => {
     const day = unlockedCount - i;
     if (day === currentPage) chip.classList.add('active');
@@ -153,7 +155,7 @@ function updateArchiveActive() {
 
 // ===================== PROGRESS =====================
 function updateProgress() {
-  document.getElementById('progress-label').textContent = `${unlockedCount} / 60 pages`;
+  document.getElementById('progress-label').textContent = `${unlockedCount} / ${activeEntries.length} pages`;
 }
 
 // ===================== PAGE ANIMATION =====================
