@@ -1,7 +1,7 @@
 // ===================== KNOWLEDGE GARDEN — app.js =====================
 
 // The garden starts on this date — change this to your actual launch date!
-const GARDEN_START = new Date('2025-06-10');
+const GARDEN_START = new Date('2026-06-10');
 
 let currentPage = 1;
 let unlockedCount = 0;
