@@ -16,7 +16,23 @@ function getDaysUnlocked() {
   return Math.min(Math.max(diff + 1, 1), entries.length);
 }
 
-// ===================== LANDING =====================
+// ===================== SHELF =====================
+function goToShelf() {
+  document.getElementById('landing').classList.add('hidden');
+  document.getElementById('shelf-view').classList.remove('hidden');
+}
+
+function pullBook(bookId) {
+  const spine = document.getElementById('book-mix');
+  spine.classList.add('pulling');
+  setTimeout(() => {
+    document.getElementById('shelf-view').classList.add('hidden');
+    spine.classList.remove('pulling');
+    enterGarden();
+  }, 600);
+}
+
+
 function enterGarden() {
   document.getElementById('landing').classList.add('hidden');
   document.getElementById('book-view').classList.remove('hidden');
@@ -30,6 +46,7 @@ function enterGarden() {
 
 function goToLanding() {
   document.getElementById('book-view').classList.add('hidden');
+  document.getElementById('shelf-view').classList.add('hidden');
   document.getElementById('landing').classList.remove('hidden');
 }
 
@@ -59,15 +76,16 @@ function renderPage(dayNumber) {
   document.getElementById('entry-formal').textContent = entry.formal;
   document.getElementById('entry-plain').textContent = entry.plain;
   document.getElementById('entry-why').textContent = entry.why;
-  const examplesEl = document.getElementById('entry-examples');
-const examplesSection = document.getElementById('entry-examples-section');
-if (entry.examples && entry.examples.length) {
-  examplesEl.innerHTML = entry.examples.map(e => `<p class="section-text" style="margin-bottom:0.8rem">${e}</p>`).join('');
-  examplesSection.style.display = 'block';
-} else {
-  examplesSection.style.display = 'none';
-}
   document.getElementById('entry-cocktail').textContent = entry.cocktail;
+
+  const examplesEl = document.getElementById('entry-examples');
+  const examplesSection = document.getElementById('entry-examples-section');
+  if (entry.examples && entry.examples.length) {
+    examplesEl.innerHTML = entry.examples.map(e => `<p class="section-text" style="margin-bottom:0.8rem">${e}</p>`).join('');
+    examplesSection.style.display = 'block';
+  } else {
+    examplesSection.style.display = 'none';
+  }
   document.getElementById('entry-fun').textContent = entry.fun_fact;
   document.getElementById('entry-closing').textContent = entry.formal;
 
