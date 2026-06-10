@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Knowledge Garden</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- LANDING PAGE -->
+  <div id="landing">
+    <div class="landing-inner">
+      <div class="garden-icon">🌿</div>
+      <h1 class="garden-title">The Knowledge Garden</h1>
+      <p class="garden-subtitle">A new page unlocks every day.<br/>Read slowly. Let it grow.</p>
+      <button class="enter-btn" onclick="enterGarden()">Open Today's Page</button>
+    </div>
+  </div>
+
+  <!-- BOOK VIEW -->
+  <div id="book-view" class="hidden">
+
+    <header class="book-header">
+      <button class="back-btn" onclick="goToLanding()">← The Garden</button>
+      <span class="book-name">A Mix of Everything</span>
+      <span class="progress-label" id="progress-label"></span>
+    </header>
+
+    <!-- PAGE NAVIGATOR -->
+    <div class="page-nav">
+      <button class="nav-arrow" id="prev-btn" onclick="changePage(-1)">‹</button>
+      <span class="page-indicator" id="page-indicator"></span>
+      <button class="nav-arrow" id="next-btn" onclick="changePage(1)">›</button>
+    </div>
+
+    <!-- BOOK PAGE -->
+    <div class="book-container">
+      <div class="book-page" id="book-page">
+
+        <div class="page-top">
+          <span class="category-tag" id="entry-category"></span>
+          <span class="day-label" id="entry-day"></span>
+        </div>
+
+        <h2 class="entry-title" id="entry-title"></h2>
+
+        <div class="divider"></div>
+
+        <section class="entry-section">
+          <h3 class="section-label">📖 The Definition</h3>
+          <p class="section-text" id="entry-formal"></p>
+        </section>
+
+        <section class="entry-section">
+          <h3 class="section-label">💬 In Plain English</h3>
+          <p class="section-text" id="entry-plain"></p>
+        </section>
+
+        <section class="entry-section">
+          <h3 class="section-label">🌍 Why It Matters</h3>
+          <p class="section-text" id="entry-why"></p>
+        </section>
+
+        <section class="entry-section cocktail-section">
+          <h3 class="section-label">🥂 The Cocktail Party Question</h3>
+          <p class="section-text cocktail-text" id="entry-cocktail"></p>
+        </section>
+
+        <section class="entry-section">
+          <h3 class="section-label">✨ Fun Fact</h3>
+          <p class="section-text" id="entry-fun"></p>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="entry-section closing-section">
+          <h3 class="section-label">🔁 Read It Again</h3>
+          <p class="section-text closing-text" id="entry-closing"></p>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- ARCHIVE -->
+    <div class="archive-bar">
+      <h4 class="archive-title">Previous Pages</h4>
+      <div class="archive-list" id="archive-list"></div>
+    </div>
+
+  </div>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
