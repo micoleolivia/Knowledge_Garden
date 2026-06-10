@@ -397,6 +397,147 @@ body {
   font-style: italic;
 }
 
+/* ===================== SHELF ===================== */
+.shelf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.shelf-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--cream-dark);
+}
+
+.shelf-scene {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at 50% 40%, #f0e8d2 0%, #e8ddc4 60%, #ddd0b0 100%);
+  padding: 2rem;
+}
+
+.shelf-invite {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-faint);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.02em;
+}
+
+.bookcase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shelf-plank {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+  padding: 1.2rem 2rem 0;
+  background: linear-gradient(180deg, #c8a96e 0%, #b8945a 40%, #a07840 100%);
+  border-radius: 3px 3px 0 0;
+  min-width: 320px;
+  box-shadow: 0 -2px 8px rgba(44,36,22,0.15), inset 0 2px 4px rgba(255,255,255,0.15);
+  position: relative;
+}
+
+.shelf-plank::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.2), transparent);
+  border-radius: 3px 3px 0 0;
+}
+
+.shelf-base {
+  width: 100%;
+  min-width: 320px;
+  height: 18px;
+  background: linear-gradient(180deg, #8a6030 0%, #6b4820 100%);
+  border-radius: 0 0 4px 4px;
+  box-shadow: 0 6px 18px rgba(44,36,22,0.35);
+}
+
+/* THE BOOK SPINE */
+.book-spine {
+  width: 52px;
+  height: 160px;
+  background: linear-gradient(135deg, #4a6741 0%, #3a5431 50%, #2e4226 100%);
+  border-radius: 2px 4px 4px 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  box-shadow:
+    3px 0 8px rgba(44,36,22,0.3),
+    inset -2px 0 4px rgba(0,0,0,0.2),
+    inset 2px 0 4px rgba(255,255,255,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-origin: bottom center;
+  margin-bottom: 0;
+}
+
+.book-spine::before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
+  border-radius: 1px;
+}
+
+.book-spine:hover {
+  transform: translateY(-18px);
+  box-shadow:
+    3px 8px 20px rgba(44,36,22,0.4),
+    inset -2px 0 4px rgba(0,0,0,0.2),
+    inset 2px 0 4px rgba(255,255,255,0.08);
+}
+
+.book-spine.pulling {
+  transform: translateY(-80px);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.3s ease 0.2s;
+}
+
+.spine-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #d4c4a0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 0 4px;
+  line-height: 1.3;
+}
+
+.spine-vol {
+  font-family: 'Lora', serif;
+  font-size: 0.5rem;
+  color: rgba(212,196,160,0.6);
+  letter-spacing: 0.12em;
+  margin-top: 6px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
 /* ===================== RESPONSIVE ===================== */
 @media (max-width: 600px) {
   .book-page {
