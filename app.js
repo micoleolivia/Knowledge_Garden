@@ -59,6 +59,14 @@ function renderPage(dayNumber) {
   document.getElementById('entry-formal').textContent = entry.formal;
   document.getElementById('entry-plain').textContent = entry.plain;
   document.getElementById('entry-why').textContent = entry.why;
+  const examplesEl = document.getElementById('entry-examples');
+const examplesSection = document.getElementById('entry-examples-section');
+if (entry.examples && entry.examples.length) {
+  examplesEl.innerHTML = entry.examples.map(e => `<p class="section-text" style="margin-bottom:0.8rem">${e}</p>`).join('');
+  examplesSection.style.display = 'block';
+} else {
+  examplesSection.style.display = 'none';
+}
   document.getElementById('entry-cocktail').textContent = entry.cocktail;
   document.getElementById('entry-fun').textContent = entry.fun_fact;
   document.getElementById('entry-closing').textContent = entry.formal;
