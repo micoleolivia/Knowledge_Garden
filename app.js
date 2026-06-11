@@ -99,29 +99,29 @@ function renderPage(dayNumber) {
     document.getElementById('entry-plain').textContent = entry.meet;
     document.getElementById('entry-why').textContent = entry.where;
     document.getElementById('entry-cocktail').textContent = entry.superpower;
-    document.querySelector('[data-label="formal"]').textContent = '🔬 The Species';
-    document.querySelector('[data-label="plain"]').textContent = '📖 Meet the Creature';
-    document.querySelector('[data-label="why"]').textContent = '🌍 Where in the World';
-    document.querySelector('[data-label="cocktail"]').textContent = '✨ Its Superpower';
+    document.querySelector('[data-label="formal"]').textContent = 'The Species';
+    document.querySelector('[data-label="plain"]').textContent = 'Meet the Creature';
+    document.querySelector('[data-label="why"]').textContent = 'Where in the World';
+    document.querySelector('[data-label="cocktail"]').textContent = 'Its Superpower';
     document.querySelector('.cocktail-section').style.display = 'block';
   } else if (activeBook === 'history') {
     document.getElementById('entry-formal').textContent = entry.setting;
     document.getElementById('entry-plain').textContent = entry.what_happened;
     document.getElementById('entry-why').textContent = entry.why_matters;
     document.getElementById('entry-cocktail').textContent = '';
-    document.querySelector('[data-label="formal"]').textContent = '📅 The Setting';
-    document.querySelector('[data-label="plain"]').textContent = '📖 What Happened';
-    document.querySelector('[data-label="why"]').textContent = '🌍 Why It Still Matters';
+    document.querySelector('[data-label="formal"]').textContent = 'The Setting';
+    document.querySelector('[data-label="plain"]').textContent = 'What Happened';
+    document.querySelector('[data-label="why"]').textContent = 'Why It Still Matters';
     document.querySelector('.cocktail-section').style.display = 'none';
   } else {
     document.getElementById('entry-formal').textContent = entry.formal;
     document.getElementById('entry-plain').textContent = entry.plain;
     document.getElementById('entry-why').textContent = entry.why;
     document.getElementById('entry-cocktail').textContent = entry.cocktail;
-    document.querySelector('[data-label="formal"]').textContent = '📖 The Definition';
-    document.querySelector('[data-label="plain"]').textContent = '💬 In Plain English';
-    document.querySelector('[data-label="why"]').textContent = '🌍 Why It Matters';
-    document.querySelector('[data-label="cocktail"]').textContent = '🥂 The Cocktail Party Question';
+    document.querySelector('[data-label="formal"]').textContent = 'The Definition';
+    document.querySelector('[data-label="plain"]').textContent = 'In Plain English';
+    document.querySelector('[data-label="why"]').textContent = 'Why It Matters';
+    document.querySelector('[data-label="cocktail"]').textContent = 'The Cocktail Party Question';
     document.querySelector('.cocktail-section').style.display = 'block';
 
     const examplesEl = document.getElementById('entry-examples');
