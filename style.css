@@ -533,7 +533,7 @@ body {
   font-size: 0.5rem;
   color: rgba(212,196,160,0.6);
   letter-spacing: 0.12em;
-  margin-top: 6px;
+  margin-top: 2px;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
