@@ -40,6 +40,7 @@ function enterGarden() {
   if (activeBook === 'finance') activeEntries = financeEntries;
   else if (activeBook === 'insects') activeEntries = insectEntries;
   else if (activeBook === 'history') activeEntries = historyEntries;
+  else if (activeBook === 'words') activeEntries = wordsEntries;
   else activeEntries = entries;
 
   const bookNames = {
@@ -47,9 +48,9 @@ function enterGarden() {
     finance: 'Financial Terms',
     insects: 'Insects of the World',
     history: 'History 101',
+    words: 'Words Without Translation',
   };
   document.querySelector('.book-name').textContent = bookNames[activeBook];
-
   document.getElementById('book-view').classList.remove('hidden');
 
   unlockedCount = getDaysUnlocked(activeEntries);
@@ -90,39 +91,47 @@ function renderPage(dayNumber) {
   document.getElementById('entry-title').textContent = entry.title;
   document.getElementById('entry-fun').textContent = entry.fun_fact;
 
-  // Hide examples section by default
   const examplesSection = document.getElementById('entry-examples-section');
   examplesSection.style.display = 'none';
+  document.querySelector('.cocktail-section').style.display = 'block';
 
   if (activeBook === 'insects') {
     document.getElementById('entry-formal').textContent = entry.species;
     document.getElementById('entry-plain').textContent = entry.meet;
     document.getElementById('entry-why').textContent = entry.where;
     document.getElementById('entry-cocktail').textContent = entry.superpower;
-    document.querySelector('[data-label="formal"]').textContent = 'The Species';
-    document.querySelector('[data-label="plain"]').textContent = 'Meet the Creature';
-    document.querySelector('[data-label="why"]').textContent = 'Where in the World';
-    document.querySelector('[data-label="cocktail"]').textContent = 'Its Superpower';
-    document.querySelector('.cocktail-section').style.display = 'block';
+    document.querySelector('[data-label="formal"]').textContent = '🔬 The Species';
+    document.querySelector('[data-label="plain"]').textContent = '📖 Meet the Creature';
+    document.querySelector('[data-label="why"]').textContent = '🌍 Where in the World';
+    document.querySelector('[data-label="cocktail"]').textContent = '✨ Its Superpower';
+
   } else if (activeBook === 'history') {
     document.getElementById('entry-formal').textContent = entry.setting;
     document.getElementById('entry-plain').textContent = entry.what_happened;
     document.getElementById('entry-why').textContent = entry.why_matters;
-    document.getElementById('entry-cocktail').textContent = '';
-    document.querySelector('[data-label="formal"]').textContent = 'The Setting';
-    document.querySelector('[data-label="plain"]').textContent = 'What Happened';
-    document.querySelector('[data-label="why"]').textContent = 'Why It Still Matters';
+    document.querySelector('[data-label="formal"]').textContent = '📅 The Setting';
+    document.querySelector('[data-label="plain"]').textContent = '📖 What Happened';
+    document.querySelector('[data-label="why"]').textContent = '🌍 Why It Still Matters';
     document.querySelector('.cocktail-section').style.display = 'none';
+
+  } else if (activeBook === 'words') {
+    document.getElementById('entry-formal').textContent = entry.language;
+    document.getElementById('entry-plain').textContent = entry.meaning;
+    document.getElementById('entry-why').textContent = entry.feeling;
+    document.querySelector('[data-label="formal"]').textContent = '🌍 The Language';
+    document.querySelector('[data-label="plain"]').textContent = '📖 What It Means';
+    document.querySelector('[data-label="why"]').textContent = '💭 The Feeling';
+    document.querySelector('.cocktail-section').style.display = 'none';
+
   } else {
     document.getElementById('entry-formal').textContent = entry.formal;
     document.getElementById('entry-plain').textContent = entry.plain;
     document.getElementById('entry-why').textContent = entry.why;
     document.getElementById('entry-cocktail').textContent = entry.cocktail;
-    document.querySelector('[data-label="formal"]').textContent = 'The Definition';
-    document.querySelector('[data-label="plain"]').textContent = 'In Plain English';
-    document.querySelector('[data-label="why"]').textContent = 'Why It Matters';
-    document.querySelector('[data-label="cocktail"]').textContent = 'The Cocktail Party Question';
-    document.querySelector('.cocktail-section').style.display = 'block';
+    document.querySelector('[data-label="formal"]').textContent = '📖 The Definition';
+    document.querySelector('[data-label="plain"]').textContent = '💬 In Plain English';
+    document.querySelector('[data-label="why"]').textContent = '🌍 Why It Matters';
+    document.querySelector('[data-label="cocktail"]').textContent = '🥂 The Cocktail Party Question';
 
     const examplesEl = document.getElementById('entry-examples');
     if (entry.examples && entry.examples.length) {
