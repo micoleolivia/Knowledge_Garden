@@ -446,7 +446,7 @@ body {
   padding: 1.2rem 2rem 0;
   background: linear-gradient(180deg, #c8a96e 0%, #b8945a 40%, #a07840 100%);
   border-radius: 3px 3px 0 0;
-  min-width: 80vw;
+  min-width: 320px;
   box-shadow: 0 -2px 8px rgba(44,36,22,0.15), inset 0 2px 4px rgba(255,255,255,0.15);
   position: relative;
 }
@@ -462,7 +462,7 @@ body {
 
 .shelf-base {
   width: 100%;
-  min-width: 80vw;
+  min-width: 320px;
   height: 18px;
   background: linear-gradient(180deg, #8a6030 0%, #6b4820 100%);
   border-radius: 0 0 4px 4px;
@@ -544,6 +544,18 @@ body {
 
 .book-spine--blue {
   background: linear-gradient(135deg, #2c5f8a 0%, #1e4a6e 50%, #163a56 100%);
+}
+
+.book-spine--red {
+  background: linear-gradient(135deg, #8b2020 0%, #6e1515 50%, #560f0f 100%);
+}
+
+.shelf-plank {
+  min-width: 80vw !important;
+}
+
+.shelf-base {
+  min-width: 80vw !important;
 }
 
 /* ===================== RESPONSIVE ===================== */
