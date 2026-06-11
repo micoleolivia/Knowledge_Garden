@@ -443,7 +443,7 @@ body {
   display: flex;
   align-items: flex-end;
   gap: 1rem;
-  padding: 1.2rem 2rem 0;
+  padding: 1.8rem 2rem 0;
   background: linear-gradient(180deg, #c8a96e 0%, #b8945a 40%, #a07840 100%);
   border-radius: 3px 3px 0 0;
   min-width: 320px;
@@ -471,8 +471,8 @@ body {
 
 /* THE BOOK SPINE */
 .book-spine {
-  width: 52px;
-  height: 160px;
+  width: 65px;
+  height: 220px;
   background: linear-gradient(135deg, #4a6741 0%, #3a5431 50%, #2e4226 100%);
   border-radius: 2px 4px 4px 2px;
   display: flex;
