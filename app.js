@@ -20,6 +20,7 @@ function getDaysUnlocked(bookEntries) {
 // ===================== SHELF =====================
 function goToShelf() {
   document.getElementById('landing').classList.add('hidden');
+  document.getElementById('book-view').classList.add('hidden');
   document.getElementById('shelf-view').classList.remove('hidden');
 }
 
@@ -34,11 +35,20 @@ function pullBook(bookId) {
   }, 600);
 }
 
-// ===================== LANDING =====================
+// ===================== ENTER BOOK =====================
 function enterGarden() {
-  activeEntries = activeBook === 'finance' ? financeEntries : activeBook === 'insects' ? insectEntries : entries;
-  const bookName = activeBook === 'finance' ? 'Financial Terms' : activeBook === 'insects' ? 'Insects of the World' : 'A Mix of Everything';
-  document.querySelector('.book-name').textContent = bookName;
+  if (activeBook === 'finance') activeEntries = financeEntries;
+  else if (activeBook === 'insects') activeEntries = insectEntries;
+  else if (activeBook === 'history') activeEntries = historyEntries;
+  else activeEntries = entries;
+
+  const bookNames = {
+    mix: 'A Mix of Everything',
+    finance: 'Financial Terms',
+    insects: 'Insects of the World',
+    history: 'History 101',
+  };
+  document.querySelector('.book-name').textContent = bookNames[activeBook];
 
   document.getElementById('book-view').classList.remove('hidden');
 
@@ -78,38 +88,47 @@ function renderPage(dayNumber) {
   document.getElementById('entry-category').textContent = entry.category;
   document.getElementById('entry-day').textContent = `Day ${entry.day} of ${activeEntries.length}`;
   document.getElementById('entry-title').textContent = entry.title;
+  document.getElementById('entry-fun').textContent = entry.fun_fact;
+
+  // Hide examples section by default
+  const examplesSection = document.getElementById('entry-examples-section');
+  examplesSection.style.display = 'none';
 
   if (activeBook === 'insects') {
     document.getElementById('entry-formal').textContent = entry.species;
     document.getElementById('entry-plain').textContent = entry.meet;
     document.getElementById('entry-why').textContent = entry.where;
     document.getElementById('entry-cocktail').textContent = entry.superpower;
-    document.getElementById('entry-fun').textContent = entry.fun_fact;
     document.querySelector('[data-label="formal"]').textContent = '🔬 The Species';
     document.querySelector('[data-label="plain"]').textContent = '📖 Meet the Creature';
     document.querySelector('[data-label="why"]').textContent = '🌍 Where in the World';
     document.querySelector('[data-label="cocktail"]').textContent = '✨ Its Superpower';
+    document.querySelector('.cocktail-section').style.display = 'block';
+  } else if (activeBook === 'history') {
+    document.getElementById('entry-formal').textContent = entry.setting;
+    document.getElementById('entry-plain').textContent = entry.what_happened;
+    document.getElementById('entry-why').textContent = entry.why_matters;
+    document.getElementById('entry-cocktail').textContent = '';
+    document.querySelector('[data-label="formal"]').textContent = '📅 The Setting';
+    document.querySelector('[data-label="plain"]').textContent = '📖 What Happened';
+    document.querySelector('[data-label="why"]').textContent = '🌍 Why It Still Matters';
+    document.querySelector('.cocktail-section').style.display = 'none';
   } else {
     document.getElementById('entry-formal').textContent = entry.formal;
     document.getElementById('entry-plain').textContent = entry.plain;
     document.getElementById('entry-why').textContent = entry.why;
     document.getElementById('entry-cocktail').textContent = entry.cocktail;
-    document.getElementById('entry-fun').textContent = entry.fun_fact;
     document.querySelector('[data-label="formal"]').textContent = '📖 The Definition';
     document.querySelector('[data-label="plain"]').textContent = '💬 In Plain English';
     document.querySelector('[data-label="why"]').textContent = '🌍 Why It Matters';
     document.querySelector('[data-label="cocktail"]').textContent = '🥂 The Cocktail Party Question';
-  }
+    document.querySelector('.cocktail-section').style.display = 'block';
 
-  const examplesEl = document.getElementById('entry-examples');
-  const examplesSection = document.getElementById('entry-examples-section');
-  if (activeBook === 'insects') {
-    examplesSection.style.display = 'none';
-  } else if (entry.examples && entry.examples.length) {
-    examplesEl.innerHTML = entry.examples.map(e => `<p class="section-text" style="margin-bottom:0.8rem">${e}</p>`).join('');
-    examplesSection.style.display = 'block';
-  } else {
-    examplesSection.style.display = 'none';
+    const examplesEl = document.getElementById('entry-examples');
+    if (entry.examples && entry.examples.length) {
+      examplesEl.innerHTML = entry.examples.map(e => `<p class="section-text" style="margin-bottom:0.8rem">${e}</p>`).join('');
+      examplesSection.style.display = 'block';
+    }
   }
 
   updateNavButtons();
