@@ -443,7 +443,7 @@ body {
   display: flex;
   align-items: flex-end;
   gap: 1rem;
-  padding: 1.8rem 2rem 0;
+  padding: 1.2rem 2rem 0;
   background: linear-gradient(180deg, #c8a96e 0%, #b8945a 40%, #a07840 100%);
   border-radius: 3px 3px 0 0;
   min-width: 320px;
@@ -471,8 +471,8 @@ body {
 
 /* THE BOOK SPINE */
 .book-spine {
-  width: 65px;
-  height: 220px;
+  width: 52px;
+  height: 160px;
   background: linear-gradient(135deg, #4a6741 0%, #3a5431 50%, #2e4226 100%);
   border-radius: 2px 4px 4px 2px;
   display: flex;
@@ -516,7 +516,7 @@ body {
 
 .spine-title {
   font-family: 'Playfair Display', serif;
-  font-size: 0.75rem;
+  font-size: 0.62rem;
   font-weight: 600;
   color: #d4c4a0;
   writing-mode: vertical-rl;
@@ -556,6 +556,10 @@ body {
 
 .shelf-base {
   min-width: 80vw !important;
+}
+
+.book-spine--purple {
+  background: linear-gradient(135deg, #5b2d8e 0%, #4a1f7a 50%, #371660 100%);
 }
 
 /* ===================== RESPONSIVE ===================== */
