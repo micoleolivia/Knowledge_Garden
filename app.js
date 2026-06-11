@@ -36,8 +36,8 @@ function pullBook(bookId) {
 
 // ===================== LANDING =====================
 function enterGarden() {
-  activeEntries = activeBook === 'finance' ? financeEntries : entries;
-  const bookName = activeBook === 'finance' ? 'Financial Terms' : 'A Mix of Everything';
+  activeEntries = activeBook === 'finance' ? financeEntries : activeBook === 'insects' ? insectEntries : entries;
+  const bookName = activeBook === 'finance' ? 'Financial Terms' : activeBook === 'insects' ? 'Insects of the World' : 'A Mix of Everything';
   document.querySelector('.book-name').textContent = bookName;
 
   document.getElementById('book-view').classList.remove('hidden');
@@ -78,15 +78,34 @@ function renderPage(dayNumber) {
   document.getElementById('entry-category').textContent = entry.category;
   document.getElementById('entry-day').textContent = `Day ${entry.day} of ${activeEntries.length}`;
   document.getElementById('entry-title').textContent = entry.title;
-  document.getElementById('entry-formal').textContent = entry.formal;
-  document.getElementById('entry-plain').textContent = entry.plain;
-  document.getElementById('entry-why').textContent = entry.why;
-  document.getElementById('entry-cocktail').textContent = entry.cocktail;
-  document.getElementById('entry-fun').textContent = entry.fun_fact;
+
+  if (activeBook === 'insects') {
+    document.getElementById('entry-formal').textContent = entry.species;
+    document.getElementById('entry-plain').textContent = entry.meet;
+    document.getElementById('entry-why').textContent = entry.where;
+    document.getElementById('entry-cocktail').textContent = entry.superpower;
+    document.getElementById('entry-fun').textContent = entry.fun_fact;
+    document.querySelector('[data-label="formal"]').textContent = '🔬 The Species';
+    document.querySelector('[data-label="plain"]').textContent = '📖 Meet the Creature';
+    document.querySelector('[data-label="why"]').textContent = '🌍 Where in the World';
+    document.querySelector('[data-label="cocktail"]').textContent = '✨ Its Superpower';
+  } else {
+    document.getElementById('entry-formal').textContent = entry.formal;
+    document.getElementById('entry-plain').textContent = entry.plain;
+    document.getElementById('entry-why').textContent = entry.why;
+    document.getElementById('entry-cocktail').textContent = entry.cocktail;
+    document.getElementById('entry-fun').textContent = entry.fun_fact;
+    document.querySelector('[data-label="formal"]').textContent = '📖 The Definition';
+    document.querySelector('[data-label="plain"]').textContent = '💬 In Plain English';
+    document.querySelector('[data-label="why"]').textContent = '🌍 Why It Matters';
+    document.querySelector('[data-label="cocktail"]').textContent = '🥂 The Cocktail Party Question';
+  }
 
   const examplesEl = document.getElementById('entry-examples');
   const examplesSection = document.getElementById('entry-examples-section');
-  if (entry.examples && entry.examples.length) {
+  if (activeBook === 'insects') {
+    examplesSection.style.display = 'none';
+  } else if (entry.examples && entry.examples.length) {
     examplesEl.innerHTML = entry.examples.map(e => `<p class="section-text" style="margin-bottom:0.8rem">${e}</p>`).join('');
     examplesSection.style.display = 'block';
   } else {
