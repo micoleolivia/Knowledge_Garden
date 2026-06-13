@@ -311,11 +311,12 @@ body {
 }
 
 .cocktail-section {
-  background: rgba(184,134,11,0.05);
-  border-left: 3px solid var(--gold-light);
+  background: rgba(45,74,45,0.08);
+  border: none;
   padding: 1rem 1.2rem;
-  border-radius: 0 2px 2px 0;
+  border-radius: 2px;
 }
+
 
 .cocktail-text {
   font-style: italic;
