@@ -258,14 +258,13 @@ body {
   letter-spacing: 0.08em;
 }
 
-.entry-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.9rem, 4vw, 2.6rem);
-  font-weight: 700;
-  color: var(--ink);
-  line-height: 1.2;
+.entry-pronunciation {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--ink-faint);
+  letter-spacing: 0.05em;
   margin-bottom: 0.3rem;
-  letter-spacing: -0.01em;
 }
 
 .divider {
