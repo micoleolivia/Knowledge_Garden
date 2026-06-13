@@ -22,6 +22,7 @@ function goToShelf() {
   document.getElementById('landing').classList.add('hidden');
   document.getElementById('book-view').classList.add('hidden');
   document.getElementById('shelf-view').classList.remove('hidden');
+  
 }
 
 function pullBook(bookId) {
@@ -89,6 +90,7 @@ function renderPage(dayNumber) {
   document.getElementById('entry-category').textContent = entry.category;
   document.getElementById('entry-day').textContent = `Day ${entry.day} of ${activeEntries.length}`;
   document.getElementById('entry-title').textContent = entry.title;
+  document.getElementById('entry-pronunciation').textContent = entry.pronunciation || '';
   document.getElementById('entry-fun').textContent = entry.fun_fact;
 
   const examplesSection = document.getElementById('entry-examples-section');
