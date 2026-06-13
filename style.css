@@ -302,7 +302,8 @@ body {
 }
 
 .section-text {
-  font-family: 'Playwrite AU VIC Guides', serif;
+  font-family: 'Special Elite', serif;
+  
   font-size: 1rem;
   color: var(--ink-light);
   line-height: 1.85;
