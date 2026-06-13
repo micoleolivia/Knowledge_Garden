@@ -475,7 +475,7 @@ body {
   width: 100%;
   min-width: 320px;
   height: 18px;
-  background: linear-gradient(180deg, #3a220e 0%, #2a1608 100%);
+  background: linear-gradient(180deg, #2a1608 0%, #1a0e04 100%);
   border-radius: 0 0 4px 4px;
   box-shadow: 0 6px 18px rgba(44,36,22,0.35);
 }
