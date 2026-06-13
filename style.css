@@ -261,7 +261,7 @@ body {
 .entry-pronunciation {
   font-family: 'EB Garamond', serif;
   font-size: 1rem;
-  font-style: italic;
+  
   color: var(--ink-faint);
   letter-spacing: 0.05em;
   margin-bottom: 0.3rem;
