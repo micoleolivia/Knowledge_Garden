@@ -19,7 +19,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Lora', Georgia, serif;
+    font-family: 'EB Garamond', Georgia, serif;
   background-color: var(--cream);
   color: var(--ink);
   min-height: 100vh;
@@ -64,7 +64,7 @@ body {
 }
 
 .garden-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2.4rem, 6vw, 4rem);
   font-weight: 700;
   color: var(--ink);
@@ -74,7 +74,7 @@ body {
 }
 
 .garden-subtitle {
-  font-family: 'Lora', serif;
+  font-family: 'EB Garamond', serif;
   font-style: italic;
   font-size: 1.15rem;
   color: var(--ink-light);
@@ -87,7 +87,7 @@ body {
   color: var(--cream);
   border: none;
   padding: 0.9rem 2.4rem;
-  font-family: 'Lora', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 1rem;
   letter-spacing: 0.05em;
   border-radius: 2px;
@@ -120,7 +120,7 @@ body {
   background: none;
   border: 1px solid rgba(247,242,232,0.3);
   color: var(--cream);
-  font-family: 'Lora', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 0.85rem;
   padding: 0.4rem 0.9rem;
   border-radius: 2px;
@@ -135,7 +135,7 @@ body {
 }
 
 .book-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 1.05rem;
   color: var(--cream-dark);
@@ -143,7 +143,7 @@ body {
 }
 
 .progress-label {
-  font-family: 'Lora', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 0.8rem;
   color: var(--ink-faint);
   letter-spacing: 0.05em;
@@ -188,7 +188,7 @@ body {
 }
 
 .page-indicator {
-  font-family: 'Lora', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 0.85rem;
   color: var(--ink-faint);
   letter-spacing: 0.08em;
@@ -240,7 +240,7 @@ body {
 }
 
 .category-tag {
-  font-family: 'Lora', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -252,14 +252,14 @@ body {
 }
 
 .day-label {
-  font-family: 'Lora', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 0.75rem;
   color: var(--ink-faint);
   letter-spacing: 0.08em;
 }
 
 .entry-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(1.9rem, 4vw, 2.6rem);
   font-weight: 700;
   color: var(--ink);
@@ -281,7 +281,7 @@ body {
 }
 
 .section-label {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -291,7 +291,7 @@ body {
 }
 
 .section-text {
-  font-family: 'Lora', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 1rem;
   color: var(--ink-light);
   line-height: 1.85;
@@ -330,7 +330,7 @@ body {
 }
 
 .archive-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 0.8rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -347,7 +347,7 @@ body {
 }
 
 .archive-chip {
-  font-family: 'Lora', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 0.78rem;
   color: var(--ink-light);
   background: var(--cream-dark);
@@ -385,14 +385,14 @@ body {
 }
 
 .locked-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.4rem;
   color: var(--ink-light);
   margin-bottom: 0.5rem;
 }
 
 .locked-text {
-  font-family: 'Lora', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 0.92rem;
   font-style: italic;
 }
@@ -408,7 +408,7 @@ body {
 }
 
 .shelf-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 1.05rem;
   color: var(--cream-dark);
@@ -425,7 +425,7 @@ body {
 }
 
 .shelf-invite {
-  font-family: 'Lora', serif;
+  font-family: 'EB Garamond', serif;
   font-style: italic;
   font-size: 1rem;
   color: var(--ink-faint);
@@ -515,7 +515,7 @@ body {
 }
 
 .spine-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 0.85rem;
   font-weight: 600;
   color: #d4c4a0;
@@ -529,7 +529,7 @@ body {
 }
 
 .spine-vol {
-  font-family: 'Lora', serif;
+  font-family: 'EB Garamond', serif;
   font-size: 0.5rem;
   color: rgba(212,196,160,0.6);
   letter-spacing: 0.12em;
