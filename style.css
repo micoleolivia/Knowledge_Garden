@@ -20,7 +20,7 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'EB Garamond', Georgia, serif;
-  background-color: var(--cream);
+    background-color: var(--green);
   color: var(--ink);
   min-height: 100vh;
   line-height: 1.75;
